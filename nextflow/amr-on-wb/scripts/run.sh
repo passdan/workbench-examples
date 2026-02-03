@@ -129,4 +129,4 @@ else
 fi
 
 # Run nextflow with Google Batch profile
-nextflow run main_AMR++.nf -profile "${NEXTFLOW_PROFILE}" -c "${NEXTFLOW_CONFIG}"
+nextflow run main_AMR++.nf -profile "${NEXTFLOW_PROFILE}" -c "${NEXTFLOW_CONFIG}" -resume

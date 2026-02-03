@@ -1,0 +1,3 @@
+[submodule "nextflow/amr-on-wb/nextflow/amr-on-wb/bin/AmrPlusPlus_SNP"]
+	path = nextflow/amr-on-wb/nextflow/amr-on-wb/bin/AmrPlusPlus_SNP
+	url = https://github.com/Isabella136/AmrPlusPlus_SNP.git

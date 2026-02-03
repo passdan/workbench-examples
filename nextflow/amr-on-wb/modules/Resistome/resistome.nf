@@ -24,32 +24,18 @@ process build_dependencies {
     errorStrategy { task.exitStatus in 137..140 ? 'retry' : 'terminate' }
     maxRetries 3
 
-    publishDir "${baseDir}/bin/", mode: "copy"
+    input:
+        path rarefaction_bin
+        path resistome_bin
+	path amrsnp_dir
 
     output:
-        path("rarefaction"), emit: rarefactionanalyzer
-        path("resistome"), emit: resistomeanalyzer
-        path("AmrPlusPlus_SNP"), emit: amrsnp
+        path(rarefaction_bin), emit: rarefactionanalyzer
+        path(resistome_bin), emit: resistomeanalyzer
+        path(amrsnp_dir), emit: amrsnp
 
     """
-    git clone https://github.com/cdeanj/rarefactionanalyzer.git
-    cd rarefactionanalyzer
-    make
-    chmod 777 rarefaction
-    mv rarefaction ../
-    cd ../
-    rm -rf rarefactionanalyzer
-
-    git clone https://github.com/cdeanj/resistomeanalyzer.git
-    cd resistomeanalyzer
-    make
-    chmod 777 resistome
-    mv resistome ../
-    cd ../
-    rm -rf resistomeanalyzer
-
-    git clone https://github.com/Isabella136/AmrPlusPlus_SNP.git
-    chmod -R 777 AmrPlusPlus_SNP/
+    echo "This message should not show up if all dependancies are satisfied. Do you have the amrsnp repo cloned in /bin?"
     """
 
 
